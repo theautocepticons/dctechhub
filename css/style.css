@@ -127,6 +127,10 @@ div#apps {
 	&.signin {
 		background: linear-gradient(0deg, #ece9e6 0%, #ffffff 100%);
 	}
+
+	&.enablon {
+		background: linear-gradient(82deg, #1d976c 0%, #93f9b9 100%);
+	}
 }
 
 .app .icon img,
