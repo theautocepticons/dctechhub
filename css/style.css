@@ -60,7 +60,7 @@ div#apps {
 	gap: 2rem;
 	margin-top: 3rem;
 	padding: 2rem;
-	max-width: 500px;
+	max-width: 1024px;
 }
 
 .app {
@@ -77,8 +77,8 @@ div#apps {
 }
 
 .app .icon {
-	width: 100%;
-	aspect-ratio: 1;
+	width: 64px;
+	height: 64px;
 	border-radius: 22%;
 	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
