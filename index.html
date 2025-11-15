@@ -157,49 +157,7 @@
 	} else {
 		greeting.textContent = 'Good evening.';
 	}
-
-	const logo = document.getElementById('logo');
-	let rotation = 0;           // Current rotation angle in degrees
-	let velocity = 0;           // Current rotational velocity (degrees per frame)
-	let isHovering = false;     // Hover state
-	let isAnimating = false;    // Animation running state
-
-	const MAX_VELOCITY = 15;    // Maximum speed (degrees per frame)
-	const MIN_VELOCITY = 0.3;   // Starting slow speed
-	const ACCEL_RATE = 0.2;     // How fast it accelerates
-	const DECEL_RATE = 0.08;    // How fast it decelerates (slower for smoother stop)
-
-	function animate() {
-		if (isHovering) {
-			velocity = Math.min(velocity + ACCEL_RATE, MAX_VELOCITY);
-		} else {
-			velocity = Math.max(velocity - DECEL_RATE, 0);
-		}
-
-		rotation += velocity;
-
-		logo.style.transform = `rotate(${rotation}deg)`;
-
-		if (velocity > 0.01) {
-			requestAnimationFrame(animate);
-		} else {
-			isAnimating = false;
-			velocity = 0;
-		}
-	}
-
-	logo.addEventListener('mouseenter', () => {
-		isHovering = true;
-
-		if (velocity === 0) velocity = MIN_VELOCITY;
-
-		if (!isAnimating) {
-			isAnimating = true;
-			requestAnimationFrame(animate);
-		}
-	});
-
-	logo.addEventListener('mouseleave', () => { isHovering = false; });
 </script>
+<script src="./js/spinner.js"></script>
 </body>
 </html>
