@@ -1,115 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TechHub Quick Links</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%);
-  }
-  h1 {
-    text-align: center;
-    color: #333;
-  }
-  #searchInput {
-    display: block;
-    margin: 16px auto 32px auto;
-    padding: 12px;
-    width: 85%;
-    max-width: 400px;
-    font-size: 1rem;
-    border: 1.5px solid #c4daf7;
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 2px 16px rgba(44,62,80,.08);
-  }
-  .links-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    max-width: 900px;
-    margin: 42px auto;
-    padding: 16px;
-  }
-  a.link-card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(44, 62, 80, 0.1);
-    padding: 28px 18px;
-    text-align: center;
-    text-decoration: none;
-    color: #2d78c5;
-    font-size: 1.18rem;
-    position: relative;
-    transition: box-shadow 0.3s cubic-bezier(.4,0,.2,1), transform 0.2s cubic-bezier(.4,0,.2,1);
-    font-family: 'Segoe UI', Arial, sans-serif;
-  }
-    a.link-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(44, 62, 80, 0.2);
-    background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
-    color: #1e5c9a;
-  }
-  @media (max-width: 900px) {
-    .links-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-    }
-    }
-    @media (max-width: 600px) {
-    .links-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 8px;
-    }
-    a.link-card {
-        width: 100%;
-        padding: 24px 10px;
-    }
-  }
-</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DC Tech Hub</title>
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="./css/fonts.css">
+	<link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-<div style="display: flex; justify-content: center; margin-top: 30px;">
-  <img src="media/techhub.png" alt="TechHub Logo" style="height: 200px;" />
-</div>
-<h1>Welcome to TechHub Quick Links!</h1>
-<input type="text" id="searchInput" placeholder="Search links..." />
+<body style="background-image: url('./images/1325115.webp')">
+<main id="container">
+	<img id="logo" src="./images/hub.svg">
+	<h2 id="title">DC Tech Hub</h2>
+	<h1 id="greeting">Good morning.</h1>
+	<div id="apps">
+		<a href="https://app-us8.wfs.cloud/#/hub">
+			<div class="app">
+				<div class="icon workforce">
+					<img src="./images/icons/workhub.svg">
+				</div>
+				<span class="label">WorkForce</span>
+			</div>
+		</a>
 
-<div class="links-container" id="linksContainer">  
-  <a href="https://app-us8.wfs.cloud/#/hub" class="link-card" target="_blank">Workforce Hub</a>
-  <a href="https://loop.cloud.microsoft/" class="link-card" target="_blank">Loops</a>
-  <a href="https://dccentral.microsoft.com/workspace?DDUROUTE=true" class="link-card" target="_blank">DCCentral Workspace</a>
-  <a href="http://20.33.73.152:3000" class="link-card" target="_blank">OT Request tool</a>
-  <a href="http://20.33.73.152:3001" class="link-card" target="_blank">Deployment Tracker</a>
-  <a href="https://aka.ms/templatemaster" class="link-card" target="_blank">Note Template Generator </a>
-  <a href="https://aka.ms/clichemaster" class="link-card" target="_blank">CM/RM Commands Master</a>
-  <a href="https://aka.ms/dcat" class="link-card" target="_blank">DCAT</a>
-  <a href="https://aka.ms/icm" class="link-card" target="_blank">IcM</a>
-  <a href="https://dccentral.microsoft.com/alert-button?DDUROUTE=true" class="link-card" target="_blank">Alert Button</a>
-  <a href="https://microsoft.sharepoint.com/teams/EHSOneStop?ovuser=72f988bf-86f1-41af-91ab-2d7cd011db47%2cmarkpiedra%40microsoft.com&OR=Teams-HL&CT=1701264368154&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yMzExMDIzMTgwNyIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3d%3d" class="link-card" target="_blank">EHS</a>
-  <a href="https://microsoft.sharepoint.com/teams/SAMASDCIT/SitePages/ITHelpdeskHome.aspx" class="link-card" target="_blank">SAMA IT Support</a>  
-  <a href="https://aka.ms/mysignins" class="link-card" target="_blank">MySignIns</a>
-  <!-- Add more cards as needed -->
-</div>
+		<a href="https://loop.cloud.microsoft/">
+			<div class="app">
+				<div class="icon loop">
+					<img src="./images/icons/loop.svg">
+				</div>
+				<span class="label">Loop</span>
+			</div>
+		</a>
 
+		<a href="https://dccentral.microsoft.com/workspace?DDUROUTE=true">
+			<div class="app">
+				<div class="icon dccentral">
+					<img src="./images/icons/dccentral.svg">
+				</div>
+				<span class="label">DC Central</span>
+			</div>
+		</a>
+
+		<a href="http://20.33.73.152:3000/">
+			<div class="app">
+				<div class="icon otr">
+					<img src="./images/icons/otr.svg">
+				</div>
+				<span class="label">OTR</span>
+			</div>
+		</a>
+
+		<a href="http://20.33.73.152:3001/">
+			<div class="app">
+				<div class="icon">
+					<img src="./images/icons/missing.svg">
+				</div>
+				<span class="label">Deployment Tracker</span>
+			</div>
+		</a>
+
+		<a href="https://aka.ms/templatemaster">
+			<div class="app">
+				<div class="icon">
+					<img src="./images/icons/missing.svg">
+				</div>
+				<span class="label">Note Templates</span>
+			</div>
+		</a>
+
+		<a href="https://aka.ms/clichemaster">
+			<div class="app">
+				<div class="icon">
+					<img src="./images/icons/missing.svg">
+				</div>
+				<span class="label">CLICHE</span>
+			</div>
+		</a>
+
+		<a href="https://aka.ms/dcat">
+			<div class="app">
+				<div class="icon dcat">
+					<img src="./images/icons/dcat.svg">
+				</div>
+				<span class="label">DCAT</span>
+			</div>
+		</a>
+
+		<a href="https://aka.ms/icm">
+			<div class="app">
+				<div class="icon icm">
+					<img src="./images/icons/icm.svg">
+				</div>
+				<span class="label">IcM</span>
+			</div>
+		</a>
+
+		<a href="https://dccentral.microsoft.com/alert-button?DDUROUTE=true">
+			<div class="app">
+				<div class="icon alert">
+					<img src="./images/icons/alert.svg">
+				</div>
+				<span class="label">Alert Button</span>
+			</div>
+		</a>
+
+		<a href="https://microsoft.sharepoint.com/teams/EHSOneStop">
+			<div class="app">
+				<div class="icon ehs">
+					<img src="./images/icons/ehs.svg">
+				</div>
+				<span class="label">EHS</span>
+			</div>
+		</a>
+
+		<a href="https://microsoft.sharepoint.com/teams/SAMASDCIT/SitePages/ITHelpdeskHome.aspx">
+			<div class="app">
+				<div class="icon it">
+					<img src="./images/icons/it.svg">
+				</div>
+				<span class="label">SAMA IT</span>
+			</div>
+		</a>
+
+		<a href="https://aka.ms/mysignins">
+			<div class="app">
+				<div class="icon signin">
+					<img src="./images/icons/signin.svg">
+				</div>
+				<span class="label">My SignIns</span>
+			</div>
+		</a>
+	</div>
+</main>
 <script>
-  const searchInput = document.getElementById('searchInput');
-  const linksContainer = document.getElementById('linksContainer');
+	const hour = new Date().getHours();
+	const greeting = document.getElementById('greeting');
+	if (hour >= 5 && hour < 12) {
+		greeting.textContent = 'Good morning.';
+	} else if (hour >= 12 && hour < 18) {
+		greeting.textContent = 'Good afternoon.';
+	} else {
+		greeting.textContent = 'Good evening.';
+	}
 
-  searchInput.addEventListener('keyup', () => {
-    const filter = searchInput.value.toLowerCase();
-    const cards = linksContainer.getElementsByTagName('a');
+	const logo = document.getElementById('logo');
+	let rotation = 0;           // Current rotation angle in degrees
+	let velocity = 0;           // Current rotational velocity (degrees per frame)
+	let isHovering = false;     // Hover state
+	let isAnimating = false;    // Animation running state
 
-    for (let card of cards) {
-      const text = card.textContent.toLowerCase();
-      card.style.display = text.includes(filter) ? 'block' : 'none';
-    }
-  });
+	const MAX_VELOCITY = 15;    // Maximum speed (degrees per frame)
+	const MIN_VELOCITY = 0.3;   // Starting slow speed
+	const ACCEL_RATE = 0.2;     // How fast it accelerates
+	const DECEL_RATE = 0.08;    // How fast it decelerates (slower for smoother stop)
+
+	function animate() {
+		if (isHovering) {
+			velocity = Math.min(velocity + ACCEL_RATE, MAX_VELOCITY);
+		} else {
+			velocity = Math.max(velocity - DECEL_RATE, 0);
+		}
+
+		rotation += velocity;
+
+		logo.style.transform = `rotate(${rotation}deg)`;
+
+		if (velocity > 0.01) {
+			requestAnimationFrame(animate);
+		} else {
+			isAnimating = false;
+			velocity = 0;
+		}
+	}
+
+	logo.addEventListener('mouseenter', () => {
+		isHovering = true;
+
+		if (velocity === 0) velocity = MIN_VELOCITY;
+
+		if (!isAnimating) {
+			isAnimating = true;
+			requestAnimationFrame(animate);
+		}
+	});
+
+	logo.addEventListener('mouseleave', () => { isHovering = false; });
 </script>
-
 </body>
 </html>
