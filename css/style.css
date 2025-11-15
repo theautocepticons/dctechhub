@@ -158,6 +158,10 @@ div#apps {
 
 	img#logo {
 		height: 75px;
+		/* Expand touch area on mobile for easier interaction */
+		box-sizing: content-box;
+		border: 15px solid transparent;
+		margin: -15px -15px 1rem -15px;
 	}
 
 	h2#title {
