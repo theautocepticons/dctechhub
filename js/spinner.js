@@ -1,7 +1,9 @@
 try {
 	const logo = document.getElementById('logo');
+	const logoWrapper = document.getElementById('logo-wrapper');
 
 	if (!logo) throw new Error('Logo element not found!');
+	if (!logoWrapper) throw new Error('Logo wrapper element not found!');
 
 	let rotation = 0;           // Current rotation angle in degrees
 	let velocity = 0;           // Current rotational velocity (degrees per frame)
@@ -54,116 +56,108 @@ try {
 		}
 	}
 
-	logo.addEventListener('mouseenter', () => {
+	logoWrapper.addEventListener('mouseenter', () => {
 		isHovering = true;
 		startAnimation();
 	});
 
-	logo.addEventListener('mouseleave', () => {
+	logoWrapper.addEventListener('mouseleave', () => {
 		isHovering = false;
 	});
 
-	logo.addEventListener('touchstart', (e) => {
-		const touch = e.touches[0];
-		const rect = logo.getBoundingClientRect();
+	// Add touch event listeners to static touch zones
+	const touchZones = document.querySelectorAll('.touch-zone');
 
-		touchStartX = touch.clientX;
-		touchStartY = touch.clientY;
-		touchStartTime = Date.now();
-		lastTouchX = touch.clientX;
-		lastTouchY = touch.clientY;
+	touchZones.forEach(zone => {
+		zone.addEventListener('touchstart', (e) => {
+			const touch = e.touches[0];
 
-		// Determine which side/edge of the logo was touched
-		const logoCenterX = rect.left + rect.width / 2;
-		const logoCenterY = rect.top + rect.height / 2;
-		const relativeX = touch.clientX - logoCenterX;
-		const relativeY = touch.clientY - logoCenterY;
+			touchStartX = touch.clientX;
+			touchStartY = touch.clientY;
+			touchStartTime = Date.now();
+			lastTouchX = touch.clientX;
+			lastTouchY = touch.clientY;
 
-		// Determine which edge is closest (left, right, top, or bottom)
-		if (Math.abs(relativeX) > Math.abs(relativeY)) {
-			// Horizontal edge is closer
-			touchStartSide = relativeX < 0 ? 'left' : 'right';
-		} else {
-			// Vertical edge is closer
-			touchStartSide = relativeY < 0 ? 'top' : 'bottom';
-		}
+			// Get the side from the data attribute (these zones are static!)
+			touchStartSide = zone.dataset.side;
 
-		e.preventDefault();
-	}, { passive: false });
+			e.preventDefault();
+		}, { passive: false });
 
-	logo.addEventListener('touchmove', (e) => {
-		const touch = e.touches[0];
-		lastTouchX = touch.clientX;
-		lastTouchY = touch.clientY;
+		zone.addEventListener('touchmove', (e) => {
+			const touch = e.touches[0];
+			lastTouchX = touch.clientX;
+			lastTouchY = touch.clientY;
 
-		e.preventDefault();
-	}, { passive: false });
+			e.preventDefault();
+		}, { passive: false });
 
-	logo.addEventListener('touchend', (e) => {
-		const touchEndTime = Date.now();
-		const touchDuration = touchEndTime - touchStartTime;
-		const touchDistanceX = lastTouchX - touchStartX;
-		const touchDistanceY = lastTouchY - touchStartY;
+		zone.addEventListener('touchend', (e) => {
+			const touchEndTime = Date.now();
+			const touchDuration = touchEndTime - touchStartTime;
+			const touchDistanceX = lastTouchX - touchStartX;
+			const touchDistanceY = lastTouchY - touchStartY;
 
-		// Use the larger movement (horizontal or vertical)
-		const absDistanceX = Math.abs(touchDistanceX);
-		const absDistanceY = Math.abs(touchDistanceY);
-		const primaryDistance = Math.max(absDistanceX, absDistanceY);
-		const isPrimaryHorizontal = absDistanceX > absDistanceY;
+			// Use the larger movement (horizontal or vertical)
+			const absDistanceX = Math.abs(touchDistanceX);
+			const absDistanceY = Math.abs(touchDistanceY);
+			const primaryDistance = Math.max(absDistanceX, absDistanceY);
+			const isPrimaryHorizontal = absDistanceX > absDistanceY;
 
-		// Only register as a flick if:
-		// 1. Touch duration is short (< 500ms for a quick flick)
-		// 2. There was meaningful movement (> 5px - sensitive for small logo)
-		if (touchDuration < 500 && primaryDistance > 5) {
-			const flickVelocity = primaryDistance / touchDuration * 10;
-			const cappedVelocity = Math.min(flickVelocity, MAX_VELOCITY);
+			// Only register as a flick if:
+			// 1. Touch duration is short (< 500ms for a quick flick)
+			// 2. There was meaningful movement (> 5px - sensitive for small logo)
+			if (touchDuration < 500 && primaryDistance > 5) {
+				const flickVelocity = primaryDistance / touchDuration * 10;
+				const cappedVelocity = Math.min(flickVelocity, MAX_VELOCITY);
 
-			// Determine rotation direction based on side and swipe direction
-			// Like pushing a wheel from different edges
-			let direction = 1; // Default clockwise
+				// Determine rotation direction based on side and swipe direction
+				// Like pushing a wheel from different edges
+				let direction = 1; // Default clockwise
 
-			if (touchStartSide === 'left') {
-				// Left side: push down = CCW, push up = CW; push right = CW, push left = CCW
-				if (isPrimaryHorizontal) {
-					direction = touchDistanceX > 0 ? 1 : -1;
-				} else {
-					direction = touchDistanceY > 0 ? -1 : 1;  // FLIPPED
+				if (touchStartSide === 'left') {
+					// Left side: push down = CCW, push up = CW; push right = CW, push left = CCW
+					if (isPrimaryHorizontal) {
+						direction = touchDistanceX > 0 ? 1 : -1;
+					} else {
+						direction = touchDistanceY > 0 ? -1 : 1;  // FLIPPED
+					}
+				} else if (touchStartSide === 'right') {
+					// Right side: push down = CW, push up = CCW; push left = CCW, push right = CW
+					if (isPrimaryHorizontal) {
+						direction = touchDistanceX > 0 ? 1 : -1;
+					} else {
+						direction = touchDistanceY > 0 ? 1 : -1;  // FLIPPED
+					}
+				} else if (touchStartSide === 'top') {
+					// Top side: push right = CW, push left = CCW; push down = CW, push up = CCW
+					if (isPrimaryHorizontal) {
+						direction = touchDistanceX > 0 ? 1 : -1;
+					} else {
+						direction = touchDistanceY > 0 ? 1 : -1;  // SAME
+					}
+				} else if (touchStartSide === 'bottom') {
+					// Bottom side: push right = CCW, push left = CW; push up = CW, push down = CCW
+					if (isPrimaryHorizontal) {
+						direction = touchDistanceX > 0 ? -1 : 1;
+					} else {
+						direction = touchDistanceY > 0 ? -1 : 1;  // SAME
+					}
 				}
-			} else if (touchStartSide === 'right') {
-				// Right side: push down = CW, push up = CCW; push left = CCW, push right = CW
-				if (isPrimaryHorizontal) {
-					direction = touchDistanceX > 0 ? 1 : -1;
-				} else {
-					direction = touchDistanceY > 0 ? 1 : -1;  // FLIPPED
-				}
-			} else if (touchStartSide === 'top') {
-				// Top side: push right = CW, push left = CCW; push down = CW, push up = CCW
-				if (isPrimaryHorizontal) {
-					direction = touchDistanceX > 0 ? 1 : -1;
-				} else {
-					direction = touchDistanceY > 0 ? 1 : -1;  // SAME
-				}
-			} else if (touchStartSide === 'bottom') {
-				// Bottom side: push right = CCW, push left = CW; push up = CW, push down = CCW
-				if (isPrimaryHorizontal) {
-					direction = touchDistanceX > 0 ? -1 : 1;
-				} else {
-					direction = touchDistanceY > 0 ? -1 : 1;  // SAME
+
+				const finalVelocity = cappedVelocity * direction;
+
+				velocity = finalVelocity;
+
+				if (!isAnimating) {
+					isAnimating = true;
+					requestAnimationFrame(animate);
 				}
 			}
 
-			const finalVelocity = cappedVelocity * direction;
-
-			velocity = finalVelocity;
-
-			if (!isAnimating) {
-				isAnimating = true;
-				requestAnimationFrame(animate);
-			}
-		}
-
-		e.preventDefault();
-	}, { passive: false });
+			e.preventDefault();
+		}, { passive: false });
+	});
 
 	logo.style.userSelect = 'none';
 	logo.style.webkitUserSelect = 'none';

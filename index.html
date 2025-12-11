@@ -16,190 +16,156 @@
 </head>
 <body style="background-image: url('./images/1325115.webp')">
 <main id="container">
-	<img id="logo" src="./images/hub.svg">
-	<h2 id="title">DC Tech Hub</h2>
-	<h1 id="greeting">Good morning.</h1>
-	<div id="apps">
-		<a href="https://app-us8.wfs.cloud/#/hub" target="_blank">
-			<div class="app">
-				<div class="icon workforce">
-					<img src="./images/icons/workhub.svg">
-				</div>
-				<span class="label">WorkForce</span>
-			</div>
-		</a>
-
-		<a href="https://loop.cloud.microsoft/" target="_blank">
-			<div class="app">
-				<div class="icon loop">
-					<img src="./images/icons/loop.svg">
-				</div>
-				<span class="label">Loop</span>
-			</div>
-		</a>
-
-		<a href="https://dccentral.microsoft.com/workspace" target="_blank">
-			<div class="app">
-				<div class="icon dccentral">
-					<img src="./images/icons/dccentral.svg">
-				</div>
-				<span class="label">DC Central</span>
-			</div>
-		</a>
-
-		<!--
-		<a href="http://20.33.73.152:3000/" target="_blank">
-			<div class="app">
-				<div class="icon otr">
-					<img src="./images/icons/otr.svg">
-				</div>
-				<span class="label">OTR</span>
-			</div>
-		</a>
-		-->
-
-		<a href="https://aka.ms/samalol" target="_blank">
-			<div class="app">
-				<div class="icon">
-					<img src="./images/icons/missing.svg">
-				</div>
-				<span class="label">SAMA LOL</span>
-			</div>
-		</a>
-
-		<!--
-		<a href="http://20.33.73.152:3001/" target="_blank">
-			<div class="app">
-				<div class="icon">
-					<img src="./images/icons/missing.svg">
-				</div>
-				<span class="label">Deployment<br>Tracker</span>
-			</div>
-		</a>
-		--->
-
-		<a href="https://aka.ms/templatemaster" target="_blank">
-			<div class="app">
-				<div class="icon">
-					<img src="./images/icons/missing.svg">
-				</div>
-				<span class="label">Note Templates</span>
-			</div>
-		</a>
-
-		<a href="https://aka.ms/clichemaster" target="_blank">
-			<div class="app">
-				<div class="icon">
-					<img src="./images/icons/missing.svg">
-				</div>
-				<span class="label">CLICHE</span>
-			</div>
-		</a>
-
-		<a href="https://aka.ms/dcat" target="_blank">
-			<div class="app">
-				<div class="icon dcat">
-					<img src="./images/icons/dcat.svg">
-				</div>
-				<span class="label">DCAT</span>
-			</div>
-		</a>
-
-		<!--
-		<a href="https://dccentral.microsoft.com/tasks/query/advanced/30704" target="_blank">
-			<div class="app">
-				<div class="icon">
-					<img src="./images/icons/missing.svg">
-				</div>
-				<span class="label">SN WW Query</span>
-			</div>
-		</a>
-		
-		<a href="https://dccentral.microsoft.com/tasks/query/advanced/31722" target="_blank">
-			<div class="app">
-				<div class="icon">
-					<img src="./images/icons/missing.svg">
-				</div>
-				<span class="label">SAT WW Query</span>
-			</div>
-		</a>
-		-->
-
-		<a href="https://aka.ms/icm" target="_blank">
-			<div class="app">
-				<div class="icon icm">
-					<img src="./images/icons/icm.svg">
-				</div>
-				<span class="label">IcM</span>
-			</div>
-		</a>
-
-		<a href="https://dccentral.microsoft.com/alert-button?DDUROUTE=true" target="_blank">
-			<div class="app">
-				<div class="icon alert">
-					<img src="./images/icons/alert.svg">
-				</div>
-				<span class="label">Alert Button</span>
-			</div>
-		</a>
-
-		<a href="https://microsoft.sharepoint.com/teams/EHSOneStop" target="_blank">
-			<div class="app">
-				<div class="icon ehs">
-					<img src="./images/icons/ehs.svg">
-				</div>
-				<span class="label">EHS</span>
-			</div>
-		</a>
-
-		<a href="https://microsoft.sharepoint.com/teams/SAMASDCIT/SitePages/ITHelpdeskHome.aspx" target="_blank">
-			<div class="app">
-				<div class="icon it">
-					<img src="./images/icons/it.svg">
-				</div>
-				<span class="label">SAMA IT</span>
-			</div>
-		</a>
-
-		<a href="https://aka.ms/mysignins" target="_blank">
-			<div class="app">
-				<div class="icon signin">
-					<img src="./images/icons/signin.svg">
-				</div>
-				<span class="label">My SignIns</span>
-			</div>
-		</a>
-
-		<a href="https://www.enablon.ehs.microsoft.com/app/go.aspx?v=/IMS/AnalysisBBS&tm=1" target="_blank">
-			<div class="app">
-				<div class="icon enablon">
-					<img src="./images/icons/enablon.svg">
-				</div>
-				<span class="label">Enablon<br>Observations</span>
-			</div>
-		</a>
-
-		<a href="https://aka.ms/careerhub" target="_blank">
-			<div class="app">
-				<div class="icon careerhub">
-					<img src="./images/icons/missing.svg">
-				</div>
-				<span class="label">Career Hub</span>
-			</div>
-		</a>
-		
+	<div id="logo-wrapper">
+		<img id="logo" src="./images/hub.svg">
+		<div class="touch-zone touch-zone-left" data-side="left"></div>
+		<div class="touch-zone touch-zone-right" data-side="right"></div>
+		<div class="touch-zone touch-zone-top" data-side="top"></div>
+		<div class="touch-zone touch-zone-bottom" data-side="bottom"></div>
 	</div>
+	<h2 id="title">DC Tech Hub</h2>
+	<h1 id="greeting">
+		Good morning.
+		<div id="flavor-text"></div>
+	</h1>
+
+	<div id="controls">
+		<div id="metro-selector">
+			<button id="metro-btn">
+				<span>SAMA</span>
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+				</svg>
+			</button>
+			<div id="metro-dropdown" class="hidden">
+				<div class="metro-option" data-value="SAMA">SAMA</div>
+			</div>
+		</div>
+		<button id="toggle" title="Switch to IAM">🔧</button>
+	</div>
+
+	<div id="apps"></div>
 </main>
+<script src="./js/app.js"></script>
+<script src="./js/flavor.js"></script>
+<script>
+	// Initialize flavor text
+	const flavorTextElement = document.getElementById('flavor-text');
+	const randomFlavor = flavorTexts[Math.floor(Math.random() * flavorTexts.length)];
+	flavorTextElement.textContent = randomFlavor;
+</script>
 <script>
 	const hour = new Date().getHours();
 	const greeting = document.getElementById('greeting');
+	let greetingText = '';
 	if (hour >= 5 && hour < 12) {
-		greeting.textContent = 'Good morning.';
+		greetingText = 'Good morning.';
 	} else if (hour >= 12 && hour < 18) {
-		greeting.textContent = 'Good afternoon.';
+		greetingText = 'Good afternoon.';
 	} else {
-		greeting.textContent = 'Good evening.';
+		greetingText = 'Good evening.';
 	}
+	// Update only the text node, preserving the flavor-text div
+	greeting.childNodes[0].textContent = greetingText;
+
+	let currentMetro = localStorage.getItem('selectedMetro') || 'SAMA';
+	let currentType = localStorage.getItem('selectedType') || 'SS';
+
+	function renderApps() {
+		const appsContainer = document.getElementById('apps');
+		const globalAppIds = lists.Global && lists.Global[currentType] ? lists.Global[currentType] : [];
+		const metroAppIds = lists[currentMetro] && lists[currentMetro][currentType] ? lists[currentMetro][currentType] : [];
+
+		// Map app IDs to their definitions and sort alphabetically by name
+		const globalApps = globalAppIds
+			.map(id => apps[id])
+			.filter(app => app)
+			.sort((a, b) => a.name.localeCompare(b.name));
+		const metroApps = metroAppIds
+			.map(id => apps[id])
+			.filter(app => app)
+			.sort((a, b) => a.name.localeCompare(b.name));
+
+		if (globalApps.length === 0 && metroApps.length === 0) {
+			appsContainer.innerHTML = `<h3>No apps found for ${currentMetro} ${currentType}</h3>`;
+			return;
+		}
+
+		const appTemplate = (app) => {
+			const icon = app.icon || './images/icons/missing.svg';
+			return `
+				<a href="${app.link}" target="_blank">
+					<div class="app">
+						<div class="icon" style="background: linear-gradient(135deg, ${app.color1}, ${app.color2})">
+							<img src="${icon}">
+						</div>
+						<span class="label">${app.name}</span>
+					</div>
+				</a>
+			`;
+		};
+
+		let html = '';
+
+		if (globalApps.length > 0) {
+			html += globalApps.map(appTemplate).join('');
+		}
+
+		if (metroApps.length > 0) {
+			if (globalApps.length > 0) {
+				html += `<h4 class="metro-divider">${currentMetro}</h4>`;
+			}
+			html += metroApps.map(appTemplate).join('');
+		}
+
+		appsContainer.innerHTML = html;
+	}
+
+	const toggleBtn = document.getElementById('toggle');
+	const metroBtn = document.getElementById('metro-btn');
+	const metroDropdown = document.getElementById('metro-dropdown');
+
+	function updateToggle() {
+		if (currentType === 'SS') {
+			toggleBtn.textContent = '🔧';
+			toggleBtn.title = 'Switch to IAM';
+		} else {
+			toggleBtn.textContent = '📦';
+			toggleBtn.title = 'Switch to SS';
+		}
+	}
+
+	metroBtn.querySelector('span').textContent = currentMetro;
+
+	metroBtn.addEventListener('click', () => {
+		metroDropdown.classList.toggle('hidden');
+	});
+
+	document.querySelectorAll('.metro-option').forEach(option => {
+		option.addEventListener('click', () => {
+			currentMetro = option.dataset.value;
+			metroBtn.querySelector('span').textContent = currentMetro;
+			localStorage.setItem('selectedMetro', currentMetro);
+			metroDropdown.classList.add('hidden');
+			renderApps();
+		});
+	});
+
+	document.addEventListener('click', (e) => {
+		if (!e.target.closest('#metro-selector')) {
+			metroDropdown.classList.add('hidden');
+		}
+	});
+
+	toggleBtn.addEventListener('click', () => {
+		currentType = currentType === 'SS' ? 'IAM' : 'SS';
+		localStorage.setItem('selectedType', currentType);
+		updateToggle();
+		renderApps();
+	});
+
+	updateToggle();
+	renderApps();
 </script>
 <script src="./js/spinner.js"></script>
 </body>

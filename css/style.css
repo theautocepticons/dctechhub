@@ -33,10 +33,54 @@ main#container {
 	justify-content: center;
 }
 
+#logo-wrapper {
+	position: relative;
+	height: 150px;
+	width: 150px;
+	margin-bottom: 1rem;
+}
+
 img#logo {
 	height: 150px;
-	margin-bottom: 1rem;
+	width: 150px;
 	cursor: pointer;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.touch-zone {
+	position: absolute;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.touch-zone-left {
+	left: 0;
+	top: 0;
+	width: 50%;
+	height: 100%;
+}
+
+.touch-zone-right {
+	right: 0;
+	top: 0;
+	width: 50%;
+	height: 100%;
+}
+
+.touch-zone-top {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+}
+
+.touch-zone-bottom {
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
 }
 
 h2#title {
@@ -51,12 +95,157 @@ h1#greeting {
 	color: white;
 	text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
 	text-align: center;
+	position: relative;
+}
+
+/* Flavor Text */
+#flavor-text {
+	font-family: "Minecraft", sans-serif;
+	font-size: 1.5rem;
+	color: #FFFF00;
+	-webkit-text-stroke: 2px #000000;
+	paint-order: stroke fill;
+	transform: rotate(-12deg);
+	animation: flavorPulse 2s ease-in-out infinite;
+	white-space: nowrap;
+	position: absolute;
+	bottom: -0.5rem;
+	right: -3rem;
+	z-index: 10;
+}
+
+@keyframes flavorPulse {
+	0%, 100% {
+		transform: rotate(-12deg) scale(1);
+	}
+	50% {
+		transform: rotate(-12deg) scale(1.1);
+	}
+}
+
+/* Controls */
+div#controls {
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	display: flex;
+	gap: 0.75rem;
+	align-items: center;
+	z-index: 100;
+}
+
+#metro-selector {
+	position: relative;
+}
+
+#metro-btn {
+	background: transparent;
+	border: none;
+	color: white;
+	font-size: 1rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0;
+	text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+	transition: transform 0.2s ease;
+}
+
+#metro-btn:hover {
+	transform: scale(1.1);
+}
+
+#metro-btn svg {
+	width: 1.25rem;
+	height: 1.25rem;
+	stroke: white;
+	filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.5));
+}
+
+#metro-dropdown {
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	right: 0;
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(20px);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	min-width: 120px;
+}
+
+#metro-dropdown.hidden {
+	display: none;
+}
+
+.metro-option {
+	padding: 0.75rem 1rem;
+	color: white;
+	cursor: pointer;
+	text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+	transition: background 0.2s ease;
+}
+
+.metro-option:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+button#toggle {
+	border: none;
+	background: transparent;
+	font-size: 2rem;
+	cursor: pointer;
+	transition: transform 0.2s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 0;
+}
+
+button#toggle:hover {
+	transform: scale(1.2);
+}
+
+button#toggle:hover::after {
+	content: attr(title);
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-top: 0.5rem;
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	padding: 0.25rem 0.5rem;
+	border-radius: 4px;
+	font-size: 0.75rem;
+	white-space: nowrap;
+	pointer-events: none;
+}
+
+div#apps h3 {
+	color: white;
+	text-shadow: 0px 1px 10px rgba(0, 0, 0, 0.5);
+	grid-column: 1 / -1;
+	text-align: center;
+}
+
+h4.metro-divider {
+	grid-column: 1 / -1;
+	color: white;
+	font-size: 0.875rem;
+	font-weight: 400;
+	text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	text-align: left;
 }
 
 /* App Grid */
 div#apps {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	gap: 2rem;
 	margin-top: 3rem;
 	padding: 2rem;
@@ -156,12 +345,16 @@ div#apps {
 		padding-top: 2rem;
 	}
 
+	#logo-wrapper {
+		height: 75px;
+		width: 75px;
+		/* Expand touch area on mobile for easier interaction */
+		padding: 15px;
+	}
+
 	img#logo {
 		height: 75px;
-		/* Expand touch area on mobile for easier interaction */
-		box-sizing: content-box;
-		border: 15px solid transparent;
-		margin: -15px -15px 1rem -15px;
+		width: 75px;
 	}
 
 	h2#title {
@@ -170,6 +363,19 @@ div#apps {
 
 	h1#greeting {
 		font-size: 3rem;
+	}
+
+	div#controls {
+		top: 1rem;
+		left: 1rem;
+		right: 1rem;
+		justify-content: space-between;
+		gap: 0.5rem;
+	}
+
+	#metro-dropdown {
+		left: 0;
+		right: auto;
 	}
 
 	div#apps {
